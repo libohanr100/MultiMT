@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<constant name="struts.custom.i18n.resources" value="struts" /> 
+<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+ <!-- constant name="struts.multipart.saveDir" value="c:\"></constant>
+ <bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+  name="myRequestParser" class="com.upload.MyRequestParseWrapper" scope="default" />
+ <改成自己定义的文件上传方式 -->
+ <!-- constant name="struts.multipart.handler" value="myRequestParser" /-->
+<package name="default" extends="struts-default">
+    
+      <action name="transch2ti" class="action.TransCh2Ti">
+      		<result name="success">/index.jsp</result>
+      		 <result name="ti2ch">/index.jsp</result>
+      		 <result name="null">/index.jsp</result>
+      </action>
+      <action name="transti2ch" class="action.TransCh2Ti">
+      		<result name="success">/ti2ch.jsp</result>
+      		 <result name="ti2ch">/ti2ch.jsp</result>
+      		 <result name="null">/ti2ch.jsp</result>
+      </action>
+       <action name="transch2tiOra" class="action.TransCh2Ti">
+      		<result name="success">/indexora.jsp</result>
+      		 <result name="ch2tiOra">/indexora.jsp</result>
+      		 <result name="null">/indexora.jsp</result>
+      </action>
+      <action name="transti2chOra" class="action.TransCh2Ti">
+      		<result name="success">/ti2chOra.jsp</result>
+      		 <result name="ti2chOra">/ti2chOra.jsp</result>
+      		 <result name="null">/ti2chOra.jsp</result>
+      </action>
+      
+      <action name="transch2vi" class="action.TransCh2Ti">
+      		<result name="success">/indexch2vi.jsp</result>
+      		 <result name="ch2vi">/indexch2vi.jsp</result>
+      		 <result name="null">/indexch2vi.jsp</result>
+      </action>
+      <action name="transvi2ch" class="action.TransCh2Ti">
+      		<result name="success">/vi2ch.jsp</result>
+      		 <result name="vi2ch">/vi2ch.jsp</result>
+      		 <result name="null">/vi2ch.jsp</result>
+      </action>
+ </package>
+ </struts>

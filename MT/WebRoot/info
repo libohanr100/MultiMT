@@ -1,0 +1,235 @@
+INFO: pocketsphinx.c(152): Parsed model-specific feature parameters from pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/feat.params
+Current configuration:
+[NAME]			[DEFLT]		[VALUE]
+-agc			none		none
+-agcthresh		2.0		2.000000e+00
+-allphone				
+-allphone_ci		no		no
+-alpha			0.97		9.700000e-01
+-ascale			20.0		2.000000e+01
+-aw			1		1
+-backtrace		no		no
+-beam			1e-48		1.000000e-48
+-bestpath		yes		yes
+-bestpathlw		9.5		9.500000e+00
+-ceplen			13		13
+-cmn			current		current
+-cmninit		8.0		8.0
+-compallsen		no		no
+-debug					0
+-dict					pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.dic
+-dictcase		no		no
+-dither			no		no
+-doublebw		no		no
+-ds			1		1
+-fdict					
+-feat			1s_c_d_dd	1s_c_d_dd
+-featparams				
+-fillprob		1e-8		1.000000e-08
+-frate			100		100
+-fsg					
+-fsgusealtpron		yes		yes
+-fsgusefiller		yes		yes
+-fwdflat		yes		yes
+-fwdflatbeam		1e-64		1.000000e-64
+-fwdflatefwid		4		4
+-fwdflatlw		8.5		8.500000e+00
+-fwdflatsfwin		25		25
+-fwdflatwbeam		7e-29		7.000000e-29
+-fwdtree		yes		yes
+-hmm					pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000
+-input_endian		little		little
+-jsgf					
+-keyphrase				
+-kws					
+-kws_delay		10		10
+-kws_plp		1e-1		1.000000e-01
+-kws_threshold		1		1.000000e+00
+-latsize		5000		5000
+-lda					
+-ldadim			0		0
+-lifter			0		22
+-lm					pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.lm.bin
+-lmctl					
+-lmname					
+-logbase		1.0001		1.000100e+00
+-logfn					
+-logspec		no		no
+-lowerf			133.33334	1.300000e+02
+-lpbeam			1e-40		1.000000e-40
+-lponlybeam		7e-29		7.000000e-29
+-lw			6.5		6.500000e+00
+-maxhmmpf		30000		30000
+-maxwpf			-1		-1
+-mdef					
+-mean					
+-mfclogdir				
+-min_endfr		0		0
+-mixw					
+-mixwfloor		0.0000001	1.000000e-07
+-mllr					
+-mmap			yes		yes
+-ncep			13		13
+-nfft			512		512
+-nfilt			40		25
+-nwpen			1.0		1.000000e+00
+-pbeam			1e-48		1.000000e-48
+-pip			1.0		1.000000e+00
+-pl_beam		1e-10		1.000000e-10
+-pl_pbeam		1e-10		1.000000e-10
+-pl_pip			1.0		1.000000e+00
+-pl_weight		3.0		3.000000e+00
+-pl_window		5		5
+-rawlogdir				
+-remove_dc		no		no
+-remove_noise		yes		yes
+-remove_silence		yes		yes
+-round_filters		yes		yes
+-samprate		16000		1.600000e+04
+-seed			-1		-1
+-sendump				
+-senlogdir				
+-senmgau				
+-silprob		0.005		5.000000e-03
+-smoothspec		no		no
+-svspec					
+-tmat					
+-tmatfloor		0.0001		1.000000e-04
+-topn			4		4
+-topn_beam		0		0
+-toprule				
+-transform		legacy		dct
+-unit_area		yes		yes
+-upperf			6855.4976	6.800000e+03
+-uw			1.0		1.000000e+00
+-vad_postspeech		50		50
+-vad_prespeech		20		20
+-vad_startspeech	10		10
+-vad_threshold		2.0		2.000000e+00
+-var					
+-varfloor		0.0001		1.000000e-04
+-varnorm		no		no
+-verbose		no		no
+-warp_params				
+-warp_type		inverse_linear	inverse_linear
+-wbeam			7e-29		7.000000e-29
+-wip			0.65		6.500000e-01
+-wlen			0.025625	2.562500e-02
+
+INFO: feat.c(715): Initializing feature stream to type: '1s_c_d_dd', ceplen=13, CMN='current', VARNORM='no', AGC='none'
+INFO: cmn.c(143): mean[0]= 12.00, mean[1..12]= 0.0
+INFO: acmod.c(154): Reading linear feature transformation from pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/feature_transform
+INFO: mdef.c(518): Reading model definition: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/mdef
+INFO: bin_mdef.c(181): Allocating 92029 * 8 bytes (718 KiB) for CD tree
+INFO: tmat.c(206): Reading HMM transition probability matrices: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/transition_matrices
+INFO: acmod.c(117): Attempting to use PTM computation module
+INFO: ms_gauden.c(198): Reading mixture gaussian parameter: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/means
+INFO: ms_gauden.c(292): 1210 codebook, 1 feature, size: 
+INFO: ms_gauden.c(294):  31x29
+INFO: ms_gauden.c(198): Reading mixture gaussian parameter: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/variances
+INFO: ms_gauden.c(292): 1210 codebook, 1 feature, size: 
+INFO: ms_gauden.c(294):  31x29
+INFO: ms_gauden.c(354): 3365 variance values floored
+INFO: ptm_mgau.c(801): Number of codebooks exceeds 256: 1210
+INFO: acmod.c(119): Attempting to use semi-continuous computation module
+INFO: ms_gauden.c(198): Reading mixture gaussian parameter: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/means
+INFO: ms_gauden.c(292): 1210 codebook, 1 feature, size: 
+INFO: ms_gauden.c(294):  31x29
+INFO: ms_gauden.c(198): Reading mixture gaussian parameter: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/variances
+INFO: ms_gauden.c(292): 1210 codebook, 1 feature, size: 
+INFO: ms_gauden.c(294):  31x29
+INFO: ms_gauden.c(354): 3365 variance values floored
+INFO: acmod.c(121): Falling back to general multi-stream GMM computation
+INFO: ms_gauden.c(198): Reading mixture gaussian parameter: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/means
+INFO: ms_gauden.c(292): 1210 codebook, 1 feature, size: 
+INFO: ms_gauden.c(294):  31x29
+INFO: ms_gauden.c(198): Reading mixture gaussian parameter: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/variances
+INFO: ms_gauden.c(292): 1210 codebook, 1 feature, size: 
+INFO: ms_gauden.c(294):  31x29
+INFO: ms_gauden.c(354): 3365 variance values floored
+INFO: ms_senone.c(149): Reading senone mixture weights: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/mixture_weights
+INFO: ms_senone.c(200): Truncating senone logs3(pdf) values by 10 bits
+INFO: ms_senone.c(207): Not transposing mixture weights in memory
+INFO: ms_senone.c(268): Read mixture weights for 1210 senones: 1 features x 31 codewords
+INFO: ms_senone.c(320): Mapping senones to individual codebooks
+INFO: ms_mgau.c(141): The value of topn: 4
+INFO: phone_loop_search.c(114): State beam -225 Phone exit beam -225 Insertion penalty 0
+INFO: dict.c(320): Allocating 26664 * 32 bytes (833 KiB) for word entries
+INFO: dict.c(333): Reading main dictionary: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.dic
+INFO: dict.c(213): Allocated 619 KiB for strings, 202 KiB for phones
+INFO: dict.c(336): 22562 words read
+INFO: dict.c(358): Reading filler dictionary: pocketsphinx-5prealpha/model_ora/20160413_tibetan_1000_notone/tibetan.cd_cont_1000/noisedict
+INFO: dict.c(213): Allocated 0 KiB for strings, 0 KiB for phones
+INFO: dict.c(361): 5 words read
+INFO: dict2pid.c(396): Building PID tables for dictionary
+INFO: dict2pid.c(406): Allocating 70^3 * 2 bytes (669 KiB) for word-initial triphones
+INFO: dict2pid.c(132): Allocated 118160 bytes (115 KiB) for word-final triphones
+INFO: dict2pid.c(196): Allocated 118160 bytes (115 KiB) for single-phone word triphones
+INFO: ngram_model_trie.c(347): Trying to read LM in trie binary format
+INFO: ngram_search_fwdtree.c(99): 780 unique initial diphones
+INFO: ngram_search_fwdtree.c(148): 0 root, 0 non-root channels, 45 single-phone words
+INFO: ngram_search_fwdtree.c(186): Creating search tree
+INFO: ngram_search_fwdtree.c(192): before: 0 root, 0 non-root channels, 45 single-phone words
+INFO: ngram_search_fwdtree.c(326): after: max nonroot chan increased to 22573
+INFO: ngram_search_fwdtree.c(339): after: 760 root, 22445 non-root channels, 42 single-phone words
+INFO: ngram_search_fwdflat.c(157): fwdflat: min_ef_width = 4, max_sf_win = 25
+INFO: continuous.c(307): /home/libohan/Workspaces/MT/WebRoot/pocketsphinx-5prealpha/src/programs/.libs/lt-pocketsphinx_continuous COMPILED ON: Apr 18 2016, AT: 15:19:35
+
+INFO: ngram_search.c(459): Resized backpointer table to 10000 entries
+INFO: ngram_search.c(459): Resized backpointer table to 20000 entries
+INFO: ngram_search.c(467): Resized score stack to 200000 entries
+INFO: ngram_search.c(459): Resized backpointer table to 40000 entries
+INFO: cmn_prior.c(131): cmn_prior_update: from <  8.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 20.41 20.53 13.12  3.94 -3.08 -7.80 -6.67  0.63 -0.08  1.26 -6.27 -0.84  2.48 >
+INFO: ngram_search_fwdtree.c(1553):    22805 words recognized (42/fr)
+INFO: ngram_search_fwdtree.c(1555):   302869 senones evaluated (561/fr)
+INFO: ngram_search_fwdtree.c(1559):  2230742 channels searched (4131/fr), 222183 1st, 215005 last
+INFO: ngram_search_fwdtree.c(1562):    43709 words for which last channels evaluated (80/fr)
+INFO: ngram_search_fwdtree.c(1564):   297946 candidate words for entering last phone (551/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 1.18 CPU 0.218 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 1.18 wall 0.218 xRT
+INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 964 words
+INFO: ngram_search_fwdflat.c(948):    14094 words recognized (26/fr)
+INFO: ngram_search_fwdflat.c(950):   189545 senones evaluated (351/fr)
+INFO: ngram_search_fwdflat.c(952):   499095 channels searched (924/fr)
+INFO: ngram_search_fwdflat.c(954):    85123 words searched (157/fr)
+INFO: ngram_search_fwdflat.c(957):    53516 word transitions (99/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.38 CPU 0.071 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.38 wall 0.071 xRT
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.536
+INFO: ngram_search.c(1279): Eliminated 3 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 1691 nodes, 17425 links
+INFO: ps_lattice.c(1380): Bestpath score: -24632
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:536:538) = -1561624
+INFO: ps_lattice.c(1441): Joint P(O,S) = -1665735 P(S|O) = -104111
+INFO: ngram_search.c(875): bestpath 0.07 CPU 0.013 xRT
+INFO: ngram_search.c(878): bestpath 0.07 wall 0.013 xRT
+INFO: cmn_prior.c(131): cmn_prior_update: from < 20.41 20.53 13.12  3.94 -3.08 -7.80 -6.67  0.63 -0.08  1.26 -6.27 -0.84  2.48 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 19.58 17.93 11.76  3.97 -3.37 -8.23 -6.51  0.51  0.50  0.32 -6.01 -0.81  2.20 >
+INFO: ngram_search_fwdtree.c(1553):      334 words recognized (5/fr)
+INFO: ngram_search_fwdtree.c(1555):    16076 senones evaluated (236/fr)
+INFO: ngram_search_fwdtree.c(1559):    77514 channels searched (1139/fr), 23874 1st, 2531 last
+INFO: ngram_search_fwdtree.c(1562):      608 words for which last channels evaluated (8/fr)
+INFO: ngram_search_fwdtree.c(1564):     2323 candidate words for entering last phone (34/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 0.06 CPU 0.086 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 0.06 wall 0.086 xRT
+INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 2 words
+INFO: ngram_search_fwdflat.c(948):      196 words recognized (3/fr)
+INFO: ngram_search_fwdflat.c(950):      945 senones evaluated (14/fr)
+INFO: ngram_search_fwdflat.c(952):      570 channels searched (8/fr)
+INFO: ngram_search_fwdflat.c(954):      387 words searched (5/fr)
+INFO: ngram_search_fwdflat.c(957):       64 word transitions (0/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.00 CPU 0.002 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.00 wall 0.002 xRT
+INFO: ngram_search.c(1200): </s> not found in last frame, using <s>.46 instead
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node <s>.0
+INFO: ngram_search.c(1279): Eliminated 9 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 10 nodes, 0 links
+INFO: ps_lattice.c(1380): Bestpath score: -2147483648
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(<s>:0:46) = -536955008
+INFO: ngram_search_fwdtree.c(432): TOTAL fwdtree 1.24 CPU 0.204 xRT
+INFO: ngram_search_fwdtree.c(435): TOTAL fwdtree 1.24 wall 0.204 xRT
+INFO: ngram_search_fwdflat.c(176): TOTAL fwdflat 0.38 CPU 0.063 xRT
+INFO: ngram_search_fwdflat.c(179): TOTAL fwdflat 0.38 wall 0.063 xRT
+INFO: ngram_search.c(303): TOTAL bestpath 0.07 CPU 0.012 xRT
+INFO: ngram_search.c(306): TOTAL bestpath 0.07 wall 0.012 xRT

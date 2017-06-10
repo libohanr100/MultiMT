@@ -1,0 +1,46 @@
+package action;
+
+import java.util.ArrayList;
+
+/**
+ * Created by dongz on 2017/5/15.
+ * 中文分句，并将结果填入最终句对数组列表的数组第一个位置。
+ * 句对数组列表结构可以查看addStringAndResetContainer()函数细节。
+ */
+public class SentenceSeperator {
+    private static ArrayList<String[]> sentencePairArrayList=new ArrayList<String[]>();
+    private static StringBuilder singleSentenceContainer=new  StringBuilder();
+
+    public static ArrayList<String[]> seperateInputTextIntoList(String inputText) {
+        char[] stringArray=inputText.toCharArray();
+        for(int i=0,j=1;j<inputText.length();i++,j++){
+            singleSentenceContainer.append(stringArray[i]);
+            //处理 。”/！”/？”此类情况
+            if(stringArray[i]=='。' || stringArray[i]=='！' || stringArray[i]=='？'){
+                if(stringArray[j]=='”'){
+                    singleSentenceContainer.append(stringArray[j]);
+                    i++;j++;
+                }
+                addStringAndResetContainer();
+            }
+            //处理”。/”！/”？此类情况
+            else if(stringArray[i]=='”' && (stringArray[j]=='。' || stringArray[j]=='！' || stringArray[j]=='？')){
+                singleSentenceContainer.append(stringArray[j]);
+                i++;j++;
+                addStringAndResetContainer();
+            }
+            //处理文末最后一个符号
+            else if(j==inputText.length()-1){
+                singleSentenceContainer.append(stringArray[j]);
+                addStringAndResetContainer();
+            }
+        }
+        return sentencePairArrayList;
+    }
+
+    private static void addStringAndResetContainer() {
+        String[] tmpStringArray = {singleSentenceContainer.toString(), ""};
+        sentencePairArrayList.add(tmpStringArray);
+        singleSentenceContainer=new StringBuilder();
+    }
+}
