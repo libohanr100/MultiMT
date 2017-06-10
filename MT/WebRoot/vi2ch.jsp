@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
   </head>
   
-  <body onload="loadTi2ChOra()">
+  <body onload="loadVi2Ch()">
   <%
     if(ActionContext.getContext().get("outputText") != null) 
    {

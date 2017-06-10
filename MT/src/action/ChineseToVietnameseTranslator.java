@@ -44,7 +44,7 @@ public class ChineseToVietnameseTranslator {
         buildWait_to_TranslateHTML();
         getTranslatedContent();
 //        writeArrayPairIntoLocalFile(sentenceArrayPair);  //句对写入output.txt文件
-        tempHTMLFile.deleteOnExit();
+        //tempHTMLFile.deleteOnExit();
         return sentenceArrayPair;
     }
 
@@ -76,7 +76,8 @@ public class ChineseToVietnameseTranslator {
 
     private void writeIntoLocalFile(File file,String string) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            //BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            BufferedWriter bw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(file),"UTF-8"));
             bw.write(string.toString());
             bw.close();
         } catch (Exception e) {

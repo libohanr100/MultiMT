@@ -7,7 +7,6 @@ var strsrc = "就贯彻不好。\n"+
 		"部队存在的问题，\n"+
 		"使我们的思想来个大解放，\n"+
 		"不能解决任何问题，\n"+
-		"主要的是要用马克思主义的立场、观点、方法，\n"+
 		"我就不舒服。\n"+
 		"中央的指示，\n"+
 		"这才算是真理，\n"+
@@ -17,7 +16,7 @@ var strsrc = "就贯彻不好。\n"+
 		"害了自己，\n"+
 		"这种态度，就是党性的表现，\n"+
 		"实事求是、从实际出发，\n";
-		var strtgt = "ལག་ལེན་ཡག་པོ་བསྟར་མི་ཐུབ།\n"+
+var strtgt = "ལག་ལེན་ཡག་པོ་བསྟར་མི་ཐུབ།\n"+
 		"འོན་ཀྱང་ལག་ལེན་ཇི་ལྟར་བྱ་དགོས།\n"+
 		"ལོ་ཏོག་ལ་སྐྱོན་བཏང་མི་ཆོག།\n"+
 		"རྩྭ་གདན་བསྡམ་དགོས།\n"+
@@ -37,7 +36,7 @@ var strsrc = "就贯彻不好。\n"+
 		"སྤྱོད་ཚུལ་དེ་ནི་ཏང་གཤིས་ཡོད་པའི་རང་རྟགས་ཡིན།\n"+
 		"དངོས་ཐོག་བདེན་འཚོལ་དང་དོན་དངོས་དང་བསྟུན་དགོས།\n";
 		
-		var strsrcora = "老板要去经商。\n"+
+var strsrcora = "老板要去经商。\n"+
 		"这么贵!\n"+
 		"我是跟您开玩笑。\n"+
 		"价钱便宜点给你。\n"+
@@ -46,7 +45,6 @@ var strsrc = "就贯彻不好。\n"+
 		"你骗不了我。\n"+
 		"我不明白。\n"+
 		"不能解决任何问题，\n"+
-		"主要的是要用马克思主义的立场、观点、方法，\n"+
 		"我就不舒服。\n"+
 		"中央的指示，\n"+
 		"这才算是真理，\n"+
@@ -56,7 +54,7 @@ var strsrc = "就贯彻不好。\n"+
 		"害了自己，\n"+
 		"这种态度，就是党性的表现，\n"+
 		"实事求是、从实际出发，\n";
-		var strtgtora = "ལག་ལེན་ཡག་པོ་བསྟར་མི་ཐུབ།\n"+
+var strtgtora = "ལག་ལེན་ཡག་པོ་བསྟར་མི་ཐུབ།\n"+
 		"འོན་ཀྱང་ལག་ལེན་ཇི་ལྟར་བྱ་དགོས།\n"+
 		"ལོ་ཏོག་ལ་སྐྱོན་བཏང་མི་ཆོག།\n"+
 		"རྩྭ་གདན་བསྡམ་དགོས།\n"+
@@ -75,6 +73,23 @@ var strsrc = "就贯彻不好。\n"+
 		"རང་ལ་གནོད་པ་བཟོ།\n"+
 		"སྤྱོད་ཚུལ་དེ་ནི་ཏང་གཤིས་ཡོད་པའི་རང་རྟགས་ཡིན།\n"+
 		"དངོས་ཐོག་བདེན་འཚོལ་དང་དོན་དངོས་དང་བསྟུན་དགོས།\n";
+var strtgtvi = "Ông chủ muốn đi vào kinh doanh.\n"+
+		"Như vậy tốn kém!\n"+
+		"Tôi đã đùa với bạn.\n"+
+		"Điểm giá rẻ cho bạn.\n"+
+		"Vì vậy, tôi đã mua nó.\n"+
+		"Bây giờ xin vui lòng ngồi xuống đầu tiên.\n"+
+		"Bạn có thể đã lừa tôi.\n"+
+		"Tôi không hiểu.\n"+
+		"Sẽ không giải quyết bất kỳ vấn đề nào,\n"+
+		"Tôi đã không cảm thấy tốt.\n"+
+		"Hướng dẫn của chính quyền trung ương,\n"+
+		"Đây là sự thật,\n"+
+		"Không có nguyên liệu,\n"+
+		"Năm 1953,\n"+
+		"Từ thực tế khách quan ra khỏi nó,\n"+
+		"Gây tổn hại cho mình,\n";
+		
 function submitCh2ti()
   {
   			document.getElementById("transch2ti").submit();
@@ -142,20 +157,20 @@ function loadVi2Ch()
 {
 	if(document.getElementById('inputText').value.trim() == "")
 	{
-	document.getElementById('inputText').value = strtgt;
+	document.getElementById('inputText').value = strtgtvi;
 	}
 }
-	function changeSelect()
+function changeSelect()
+{
+	
+	if(document.getElementById('selectText').value == "cn-ti"
+		 	&& localStorage.getItem("flushch") == "0")
 	{
-		
-		if(document.getElementById('selectText').value == "cn-ti"
-			 	&& localStorage.getItem("flushch") == "0")
-		{
 		document.getElementById('inputText').value =strsrc;
-		}
-		if(document.getElementById('selectText').value == "ti-cn"
-			&&  localStorage.getItem("flushti") == "0")
-			{
-			document.getElementById('inputText').value = strtgt;
-			}
 	}
+	if(document.getElementById('selectText').value == "ti-cn"
+		&&  localStorage.getItem("flushti") == "0")
+	{
+		document.getElementById('inputText').value = strtgt;
+	}
+}

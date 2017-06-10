@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//WebRoot/js/myJs.js=UTF-8
+encoding//src/action/ChineseToVietnameseTranslator.java=UTF-8
+encoding//src/action/GetTranslatedStringFromPhantomjs.java=UTF-8
+encoding//src/action/SentenceSeperator.java=UTF-8
+encoding//src/action/TransCh2Ti.java=UTF-8
+encoding//src/action/TranslatorTest.java=UTF-8

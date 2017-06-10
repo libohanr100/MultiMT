@@ -38,7 +38,7 @@ function waitFor(checkValidation,onReady){
 		retryTimes++;
 		if(condition!=targetLanguage && retryTimes<30){
 			condition=checkValidation();
-		}else if(retryTimes>=30){
+		}else if(retryTimes>=300){
 			console.log("waitFor() time out.");
 			phantom.exit();
 		}

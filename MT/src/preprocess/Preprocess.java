@@ -14,14 +14,14 @@ public class Preprocess {
 		if(input.length() == 0)
 			return "";
 		String line = "";
-		try { // é˜²æ­¢æ–‡ä»¶å»ºç«‹æˆ–è¯»å–å¤±è´¥ï¼Œç”¨catchæ•æ‰é”™è¯¯å¹¶æ‰“å°ï¼Œä¹Ÿå¯ä»¥throw
+		try { // ·ÀÖ¹ÎÄ¼ş½¨Á¢»ò¶ÁÈ¡Ê§°Ü£¬ÓÃcatch²¶×½´íÎó²¢´òÓ¡£¬Ò²¿ÉÒÔthrow
 
-			File writename = new File("./input.txt"); // ç›¸å¯¹è·¯å¾„ï¼Œå¦‚æœæ²¡æœ‰åˆ™è¦å»ºç«‹ä¸€ä¸ªæ–°çš„outputã€‚txtæ–‡ä»¶
-			writename.createNewFile(); // åˆ›å»ºæ–°æ–‡ä»¶
+			File writename = new File("./input.txt"); // Ïà¶ÔÂ·¾¶£¬Èç¹ûÃ»ÓĞÔòÒª½¨Á¢Ò»¸öĞÂµÄoutput¡£txtÎÄ¼ş
+			writename.createNewFile(); // ´´½¨ĞÂÎÄ¼ş
 			BufferedWriter out = new BufferedWriter(new FileWriter(writename));
-			out.write(input); // \r\nå³ä¸ºæ¢è¡Œ
-			out.flush(); // æŠŠç¼“å­˜åŒºå†…å®¹å‹å…¥æ–‡ä»¶
-			out.close(); // æœ€åè®°å¾—å…³é—­æ–‡ä»¶
+			out.write(input); // \r\n¼´Îª»»ĞĞ
+			out.flush(); // °Ñ»º´æÇøÄÚÈİÑ¹ÈëÎÄ¼ş
+			out.close(); // ×îºó¼ÇµÃ¹Ø±ÕÎÄ¼ş
 			
 			//String path = "/home/libohan/apache-tomcat-7.0.63/bin/";//ServletActionContext.getServletContext().getRealPath(File.separator); 
 			String path = "/usr/local/tomcat/bin/";
@@ -39,12 +39,12 @@ public class Preprocess {
 	     
 			Process process = Runtime.getRuntime().exec (commands);
 	        process.waitFor();
-	        /* è¯»å…¥TXTæ–‡ä»¶ */
-			String pathname = "./input.out.txt"; // ç»å¯¹è·¯å¾„æˆ–ç›¸å¯¹è·¯å¾„éƒ½å¯ä»¥ï¼Œè¿™é‡Œæ˜¯ç»å¯¹è·¯å¾„ï¼Œå†™å…¥æ–‡ä»¶æ—¶æ¼”ç¤ºç›¸å¯¹è·¯å¾„
-			File filename = new File(pathname); // è¦è¯»å–ä»¥ä¸Šè·¯å¾„çš„inputã€‚txtæ–‡ä»¶
+	        /* ¶ÁÈëTXTÎÄ¼ş */
+			String pathname = "./input.out.txt"; // ¾ø¶ÔÂ·¾¶»òÏà¶ÔÂ·¾¶¶¼¿ÉÒÔ£¬ÕâÀïÊÇ¾ø¶ÔÂ·¾¶£¬Ğ´ÈëÎÄ¼şÊ±ÑİÊ¾Ïà¶ÔÂ·¾¶
+			File filename = new File(pathname); // Òª¶ÁÈ¡ÒÔÉÏÂ·¾¶µÄinput¡£txtÎÄ¼ş
 			InputStreamReader reader = new InputStreamReader(
-					new FileInputStream(filename)); // å»ºç«‹ä¸€ä¸ªè¾“å…¥æµå¯¹è±¡reader
-			BufferedReader br = new BufferedReader(reader); // å»ºç«‹ä¸€ä¸ªå¯¹è±¡ï¼Œå®ƒæŠŠæ–‡ä»¶å†…å®¹è½¬æˆè®¡ç®—æœºèƒ½è¯»æ‡‚çš„è¯­è¨€
+					new FileInputStream(filename)); // ½¨Á¢Ò»¸öÊäÈëÁ÷¶ÔÏóreader
+			BufferedReader br = new BufferedReader(reader); // ½¨Á¢Ò»¸ö¶ÔÏó£¬Ëü°ÑÎÄ¼şÄÚÈİ×ª³É¼ÆËã»úÄÜ¶Á¶®µÄÓïÑÔ
 			
 			String tmp= br.readLine();
 			tmp = tmp.trim();
@@ -52,10 +52,10 @@ public class Preprocess {
 			
 			while ( (tmp = br.readLine()) != null) {
 				tmp = tmp.trim();
-				line += tmp + "\n"; // ä¸€æ¬¡è¯»å…¥ä¸€è¡Œæ•°æ®
+				line += tmp + "\n"; // Ò»´Î¶ÁÈëÒ»ĞĞÊı¾İ
 			}
 			
-			/* å†™å…¥Txtæ–‡ä»¶ */
+			/* Ğ´ÈëTxtÎÄ¼ş */
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -65,14 +65,14 @@ public class Preprocess {
 	public String getEncoding(String str) {
 		  if (str == null || str.trim().length() < 1)
 		    return "";
-		  // å¸¸ç”¨å­—ç¬¦ç¼–ç æ•°ç»„
+		  // ³£ÓÃ×Ö·û±àÂëÊı×é
 		  String[] encodes = new String[] { "GBK", "ISO-8859-1", "GB2312",
 		      "GB18030", "UTF-8" };
 		  for (String encode : encodes) {
 		    try {
-		      // åŒ¹é…å­—ç¬¦ç¼–ç 
+		      // Æ¥Åä×Ö·û±àÂë
 		      if (str.equals(new String(str.getBytes(), encode))) {
-		        // è¿”å›ç¼–ç åç§°
+		        // ·µ»Ø±àÂëÃû³Æ
 		        return encode;
 		      } else {
 		        continue;
@@ -87,9 +87,9 @@ public class Preprocess {
 		String result = "";
 		String oldCharset = getEncoding(str);
 		if (str != null) {
-			   //ç”¨æ—§çš„å­—ç¬¦ç¼–ç è§£ç å­—ç¬¦ä¸²ã€‚è§£ç å¯èƒ½ä¼šå‡ºç°å¼‚å¸¸ã€‚
+			   //ÓÃ¾ÉµÄ×Ö·û±àÂë½âÂë×Ö·û´®¡£½âÂë¿ÉÄÜ»á³öÏÖÒì³£¡£
 			   byte[] bs = str.getBytes(oldCharset);
-			   //ç”¨æ–°çš„å­—ç¬¦ç¼–ç ç”Ÿæˆå­—ç¬¦ä¸²
+			   //ÓÃĞÂµÄ×Ö·û±àÂëÉú³É×Ö·û´®
 			   result = new String(bs, "UTF-8");
 			  }
 			return result;

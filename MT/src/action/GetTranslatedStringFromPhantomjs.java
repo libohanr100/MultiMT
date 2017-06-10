@@ -30,7 +30,7 @@ public class GetTranslatedStringFromPhantomjs {
         ArrayList<String> translatedStringArray=new ArrayList<String>();
         checkThreeFilesValidation();
         Runtime rt=Runtime.getRuntime();
-        Process p=rt.exec( phantomjsEXEPath+" "+phantom_jsPath+" "+tempHTMLPath+" "+targetLanguage);
+        Process p=rt.exec( phantomjsEXEPath+" "+phantom_jsPath+" "+tempHTMLPath+" "+targetLanguage + " --output-encoding=utf8");
         translatedStringArray = interpretStreamToArray(p.getInputStream());
         return translatedStringArray;
     }
@@ -56,12 +56,16 @@ public class GetTranslatedStringFromPhantomjs {
     //从流中获得翻译的句子
     private static ArrayList<String> interpretStreamToArray(InputStream inputStream){
         ArrayList<String> stringArray = new ArrayList<String>();
+        
         try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
             String tmp="";
             while((tmp=br.readLine())!=null){
+            	//System.out.println(new String(tmp.getBytes("GB2312"), "utf-8"));
                 stringArray.add(tmp);
+                
             }
+            
             br.close();
         } catch (Exception e) {
             e.printStackTrace();

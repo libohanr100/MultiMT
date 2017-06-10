@@ -4,9 +4,11 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -43,58 +45,7 @@ public class TransCh2Ti extends ActionSupport implements ModelDriven<TransInfo>{
 	static String []suffix = {"གཏོང་","བྱེད་","ཞུ་","བྱས་","བརྒྱབ་","བྱ་"};
 	@Override
 	public String execute() throws Exception {
-		String inputText= transinfo.getInputText();
-		//String selectText = transinfo.getSelectText();
-
-		Preprocess pr = new Preprocess();
-		String []lines = inputText.split("\n|\r");
-		String res = "";
-		for(int k = 0; k < lines.length; k ++)
-		{
-		inputText = lines[k].trim();
-		if(inputText.length() == 0)
-			continue;
 		
-		inputText = pr.convert2UTF8(inputText);
-		
-		String inputTextTmp = inputText;
-		
-		//inputText = "中华";
-		inputText = inputText.replaceAll(" ", "");
-		inputText = inputText.replaceAll("　", "");
-		List<String> segmented = servlet.servlet.segmenter.segmentString(inputText);
-	   
-	    String toDeal = "";
-	    for(String i: segmented)
-	    {
-	    		toDeal = toDeal + " " + i;
-	    }
-	  //System.out.println(toDeal);
-		 String []commands = new String[]{ "/bin/sh", "-c", "echo '"+ toDeal+ "'|nc 192.168.0.111 8997"};
-		Process process = Runtime.getRuntime().exec (commands);
-		process.waitFor();           
-		// for showing the info on screen
-		           
-		InputStreamReader ir=new
-				InputStreamReader(process.getInputStream());
-		           
-		BufferedReader input = new BufferedReader (ir);
-		           
-		String outText = "", line; 
-		    
-		while ((line = input.readLine ()) != null){
-		     outText += line;          
-		}
-		
-		 outText = outText.replaceAll(" ", "");
-		
-		 res += outText + "\n";
-		//ActionContext.getContext().put("outputText", outText);
-		//ActionContext.getContext().put("inputText", inputTextTmp);
-		}
-		
-		ActionContext.getContext().put("outputText", res);
-		ActionContext.getContext().put("inputText", inputText);
 		return SUCCESS;
 	}
 	
@@ -191,256 +142,48 @@ public class TransCh2Ti extends ActionSupport implements ModelDriven<TransInfo>{
 		return origin;
 	}
 	public String ti2ch() throws Exception {
-		String inputText= transinfo.getInputText();
-		Preprocess pr = new Preprocess();
-		inputText = pr.convert2UTF8(inputText);
-		inputText = inputText.replaceAll(" ", "");
-		inputText = inputText.replaceAll("　", "");
-
-		 inputText = pr.segTibetan(inputText);
-
-		 //System.out.println(inputText + "DD");
-		 String []lines = inputText.split("\n|\r");
-			String res = "";
-			for(int k = 0; k < lines.length; k ++)
-		{
-				inputText = lines[k].trim();
-				if(inputText.length() == 0)
-					continue;
-				
-				inputText = pr.convert2UTF8(inputText);
-				
-				String inputTextTmp = inputText;
-
-				String []commands = new String[]{ "/bin/sh", "-c", "echo '"+ inputTextTmp+ "'|nc 192.168.0.111 8998"};
-				Process process = Runtime.getRuntime().exec (commands);
-				process.waitFor();   
-				// for showing the info on screen
-				           
-				InputStreamReader ir=new
-						InputStreamReader(process.getInputStream());
-				           
-				BufferedReader input = new BufferedReader (ir);
-				           
-				String outText = "", line; 
-				    
-				while ((line = input.readLine ()) != null){
-				     outText += line; 
-				}
-				/*
-				String unk = findUnk(outText, inputText, true);
-				
-				commands = new String[]{ "/bin/sh", "-c", "echo '"+ unk+ "'|nc 192.168.11.36 8998"};
-				process = Runtime.getRuntime().exec (commands);
-				process.waitFor();   
-				// for showing the info on screen
-				           
-				ir=new InputStreamReader(process.getInputStream());
-				input = new BufferedReader (ir);
-				outText = ""; 
-				while ((line = input.readLine ()) != null){
-				     outText += line; 
-				}
-				*/
-				/*
-				unk = findUnk(outText, unk, true);
-				//System.out.println(outText);
-				*/
-				outText = outText.replaceAll(" ", "");
-				 res += outText + "\n";
-				// System.out.println(outText);
-		}
-		//ActionContext.getContext().put("outputText", outText);
-		//ActionContext.getContext().put("inputText", inputTextTmp);
-			ActionContext.getContext().put("outputText", res);
-			ActionContext.getContext().put("inputText", inputText);
+		
 		 return "ti2ch";
 	}
 	
 	public String ch2tiOra() throws Exception {
-		String inputText= transinfo.getInputText();
-		//String selectText = transinfo.getSelectText();
-
-		Preprocess pr = new Preprocess();
-		String []lines = inputText.split("\n|\r");
-		String res = "";
-		for(int k = 0; k < lines.length; k ++)
-		{
-		inputText = lines[k].trim();
-		if(inputText.length() == 0)
-			continue;
 		
-		inputText = pr.convert2UTF8(inputText);
-		
-		String inputTextTmp = inputText;
-		
-		//inputText = "中华";
-		inputText = inputText.replaceAll(" ", "");
-		inputText = inputText.replaceAll("　", "");
-		List<String> segmented = servlet.servlet.segmenter.segmentString(inputText);
-	   
-	    String toDeal = "";
-	    for(String i: segmented)
-	    {
-	    		toDeal = toDeal + " " + i;
-	    }
-	  //System.out.println(toDeal);
-		 String []commands = new String[]{ "/bin/sh", "-c", "echo '"+ toDeal+ "'|nc 192.168.0.111 8999"};
-		Process process = Runtime.getRuntime().exec (commands);
-		process.waitFor();           
-		// for showing the info on screen
-		           
-		InputStreamReader ir=new
-				InputStreamReader(process.getInputStream());
-		           
-		BufferedReader input = new BufferedReader (ir);
-		           
-		String outText = "", line; 
-		    
-		while ((line = input.readLine ()) != null){
-		     outText += line;          
-		}
-		
-		 outText = outText.replaceAll(" ", "");
-		
-		 res += outText + "\n";
-		//ActionContext.getContext().put("outputText", outText);
-		//ActionContext.getContext().put("inputText", inputTextTmp);
-		}
-		
-		ActionContext.getContext().put("outputText", res);
-		ActionContext.getContext().put("inputText", inputText);
 		 return "ch2tiOra";
 	}
 	
 	public String ti2chOra() throws Exception {
-		String inputText= transinfo.getInputText();
-		Preprocess pr = new Preprocess();
-		inputText = pr.convert2UTF8(inputText);
-		inputText = inputText.replaceAll(" ", "");
-		inputText = inputText.replaceAll("　", "");
-
-		 inputText = pr.segTibetan(inputText);
-
-		 //System.out.println(inputText + "DD");
-		 String []lines = inputText.split("\n|\r");
-			String res = "";
-			for(int k = 0; k < lines.length; k ++)
-		{
-				inputText = lines[k].trim();
-				if(inputText.length() == 0)
-					continue;
-				
-				inputText = pr.convert2UTF8(inputText);
-				
-				String inputTextTmp = inputText;
-
-				String []commands = new String[]{ "/bin/sh", "-c", "echo '"+ inputTextTmp+ "'|nc 192.168.0.111 9000"};
-				Process process = Runtime.getRuntime().exec (commands);
-				process.waitFor();   
-				// for showing the info on screen
-				           
-				InputStreamReader ir=new
-						InputStreamReader(process.getInputStream());
-				           
-				BufferedReader input = new BufferedReader (ir);
-				           
-				String outText = "", line; 
-				    
-				while ((line = input.readLine ()) != null){
-				     outText += line; 
-				}
-				
-				outText = outText.replaceAll(" ", "");
-				 res += outText + "\n";
-				// System.out.println(outText);
-		}
-		//ActionContext.getContext().put("outputText", outText);
-		//ActionContext.getContext().put("inputText", inputTextTmp);
-			ActionContext.getContext().put("outputText", res);
-			ActionContext.getContext().put("inputText", inputText);
+		
 		 return "ti2chOra";
 	}
 	public String ch2vi() throws Exception {
 		String inputText= transinfo.getInputText();
-		//String selectText = transinfo.getSelectText();
-
-		Preprocess pr = new Preprocess();
-		String []lines = inputText.split("\n|\r");
+		inputText = inputText.trim();
 		String res = "";
-		for(int k = 0; k < lines.length; k ++)
-		{
-		inputText = lines[k].trim();
-		if(inputText.length() == 0)
-			continue;
-		
-		inputText = pr.convert2UTF8(inputText);
-		
 		String outText = "", line; 
-		ChineseToVietnameseTranslator.setTargetLanguage("en");
-
-        //测试翻译单句
+		ChineseToVietnameseTranslator.setTargetLanguage("vi");
         ArrayList<String[]> list = ChineseToVietnameseTranslator.translate(inputText);
-
-        //输出结果s
         for (String[] s : list) {
-            System.out.println(s[0]+" \n译文: "+s[1]+'\n');
+        	if(s[1].trim().length() != 0)
+        		outText += s[1].trim() + '\n';
         }
-		 outText = outText.replaceAll(" ", "");
-		 res += outText + "\n";
-		}
-		
-		ActionContext.getContext().put("outputText", res);
+		ActionContext.getContext().put("outputText", outText);
 		ActionContext.getContext().put("inputText", inputText);
-		 return "ch2vi";
+		return "ch2vi";
 	}
 	
 	public String vi2ch() throws Exception {
 		String inputText= transinfo.getInputText();
-		Preprocess pr = new Preprocess();
-		inputText = pr.convert2UTF8(inputText);
-		inputText = inputText.replaceAll(" ", "");
-		inputText = inputText.replaceAll("　", "");
-
-		 inputText = pr.segTibetan(inputText);
-
-		 //System.out.println(inputText + "DD");
-		 String []lines = inputText.split("\n|\r");
-			String res = "";
-			for(int k = 0; k < lines.length; k ++)
-		{
-				inputText = lines[k].trim();
-				if(inputText.length() == 0)
-					continue;
-				
-				inputText = pr.convert2UTF8(inputText);
-				
-				String inputTextTmp = inputText;
-
-				String []commands = new String[]{ "/bin/sh", "-c", "echo '"+ inputTextTmp+ "'|nc 192.168.0.111 9000"};
-				Process process = Runtime.getRuntime().exec (commands);
-				process.waitFor();   
-				// for showing the info on screen
-				           
-				InputStreamReader ir=new
-						InputStreamReader(process.getInputStream());
-				           
-				BufferedReader input = new BufferedReader (ir);
-				           
-				String outText = "", line; 
-				    
-				while ((line = input.readLine ()) != null){
-				     outText += line; 
-				}
-				
-				outText = outText.replaceAll(" ", "");
-				 res += outText + "\n";
-				// System.out.println(outText);
-		}
-		//ActionContext.getContext().put("outputText", outText);
-		//ActionContext.getContext().put("inputText", inputTextTmp);
-			ActionContext.getContext().put("outputText", res);
-			ActionContext.getContext().put("inputText", inputText);
+		inputText = inputText.trim();
+		String res = "";
+		String outText = "", line; 
+		ChineseToVietnameseTranslator.setTargetLanguage("zh-CHS");
+        ArrayList<String[]> list = ChineseToVietnameseTranslator.translate(inputText);
+        for (String[] s : list) {
+        	if(s[1].trim().length() != 0)
+        		outText += s[1].trim() + '\n';
+        }
+		ActionContext.getContext().put("outputText", outText);
+		ActionContext.getContext().put("inputText", inputText);
 		 return "vi2ch";
 	}
 	public static void main(String[] args) throws Exception {

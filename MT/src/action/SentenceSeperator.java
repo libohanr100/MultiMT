@@ -8,39 +8,48 @@ import java.util.ArrayList;
  * 句对数组列表结构可以查看addStringAndResetContainer()函数细节。
  */
 public class SentenceSeperator {
-    private static ArrayList<String[]> sentencePairArrayList=new ArrayList<String[]>();
-    private static StringBuilder singleSentenceContainer=new  StringBuilder();
-
-    public static ArrayList<String[]> seperateInputTextIntoList(String inputText) {
+	public static ArrayList<String[]> seperateInputTextIntoList(String inputText) {
+        ArrayList<String[]> sentencePairArrayList=new ArrayList<String[]>();
+        String []input = inputText.split("\n|\r");
+        for(int i = 0; i < input.length; i ++)
+        {
+        	input[i] = input[i].trim();
+        	String[] tmpStringArray = {input[i].toString(), ""};
+            sentencePairArrayList.add(tmpStringArray);
+        }
+        /*
+        StringBuilder singleSentenceContainer=new  StringBuilder();
         char[] stringArray=inputText.toCharArray();
         for(int i=0,j=1;j<inputText.length();i++,j++){
             singleSentenceContainer.append(stringArray[i]);
             //处理 。”/！”/？”此类情况
-            if(stringArray[i]=='。' || stringArray[i]=='！' || stringArray[i]=='？'){
+            if(stringArray[i]=='。' || stringArray[i]=='！' || stringArray[i]=='，'|| stringArray[i]=='？'
+            		|| stringArray[i]=='.' || stringArray[i]=='!' || stringArray[i]==','|| stringArray[i]=='?'){
                 if(stringArray[j]=='”'){
                     singleSentenceContainer.append(stringArray[j]);
                     i++;j++;
                 }
-                addStringAndResetContainer();
+                String[] tmpStringArray = {singleSentenceContainer.toString(), ""};
+                sentencePairArrayList.add(tmpStringArray);
+                singleSentenceContainer=new StringBuilder();
             }
             //处理”。/”！/”？此类情况
             else if(stringArray[i]=='”' && (stringArray[j]=='。' || stringArray[j]=='！' || stringArray[j]=='？')){
                 singleSentenceContainer.append(stringArray[j]);
                 i++;j++;
-                addStringAndResetContainer();
+                String[] tmpStringArray = {singleSentenceContainer.toString(), ""};
+                sentencePairArrayList.add(tmpStringArray);
+                singleSentenceContainer=new StringBuilder();
             }
             //处理文末最后一个符号
             else if(j==inputText.length()-1){
                 singleSentenceContainer.append(stringArray[j]);
-                addStringAndResetContainer();
+                String[] tmpStringArray = {singleSentenceContainer.toString(), ""};
+                sentencePairArrayList.add(tmpStringArray);
+                singleSentenceContainer=new StringBuilder();
             }
         }
+        */
         return sentencePairArrayList;
-    }
-
-    private static void addStringAndResetContainer() {
-        String[] tmpStringArray = {singleSentenceContainer.toString(), ""};
-        sentencePairArrayList.add(tmpStringArray);
-        singleSentenceContainer=new StringBuilder();
     }
 }
